@@ -1,0 +1,48 @@
+<html>
+<!-- Template for biographical page -->
+<head>
+<h1>Calculator</h1>
+<title>Calculator</title>
+	<script type="text/javascript">
+		<!--
+            	function outPut() 
+			{
+				
+				var in1 = document.getElementsByName('input1')[0].value;
+				var in2 = document.getElementsByName('input2')[0].value;
+				var in3 = document.getElementsByName('input3')[0].value;
+				if(in1 != undefined || in2 != undefined || in3 != undefined)
+				{
+					in1 = parseInt(in1.trim());
+					in2 = parseInt(in2.trim());
+					in3 = parseInt(in3.trim());
+					var compute = (in1 * in1 * in1) + (in2 * in2 * in2) + (in3 * in3 * in3);
+					if(parseInt(compute) == 370 || parseInt(compute) == 371 || parseInt(compute) == 153 || parseInt(compute) == 407)
+					{
+						document.getElementsByName('output')[0].value=compute;
+					}
+					else
+					{
+						alert("Not equal to the sum of the cubes of the digits")
+						document.getElementsByName('output')[0].value="";
+					}
+				}
+				
+				
+            		}
+        	 //-->
+      	</script>
+</head>
+<body>
+<p>We will make a calculation of 3 numbers put into 3 individial input boxes. If the 3 digits are equal to the sum of the cubes of the digits, the number will eb shown in the text box labelled "output". Else, an alert box will pop up</p>
+<form action="/action_page.php">
+First digit: <input type="text" name="input1"><br>
+Second digit: <input type="text" name="input2"><br>
+Third digit: <input type="text" name="input3"><br>
+</form>
+<button onclick="outPut()" type="button">Calculate</button>
+<input type="text" name="output"><br>
+
+</body>
+</html>
+

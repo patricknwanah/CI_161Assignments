@@ -1,0 +1,67 @@
+<html>
+<!-- Template for biographical page -->
+<head>
+<h1>Umbar Calculator</h1>
+<title>Umbar Calculator</title>
+	<script type="text/javascript">
+		<!--
+            function outPut() 
+			{
+				//alert("Not equal to the sum of the cubes of the digits");
+				var in1 = document.getElementsByName('input1')[0].value;
+				var in2 = document.getElementsByName('input2')[0].value;
+				var in3 = document.getElementsByName('input3')[0].value;
+				var in4 = document.getElementsByName('input4')[0].value;
+				var in5 = document.getElementsByName('input5')[0].value;
+				if(in1 != undefined || in2 != undefined || in3 != undefined)
+				{
+					in1 = parseInt(in1.trim());
+					in2 = parseInt(in2.trim());
+					in3 = parseInt(in3.trim());
+					in4 = parseInt(in4.trim());
+					in5 = parseInt(in5.trim());
+					var compute = distanceOfUmbra(in1,in2,in3,in4,in5);
+					if(compute > in5)
+					{
+						alert("We have an eclipse");
+					}
+					document.getElementsByName('output')[0].value=compute;
+					
+					//alert("Not equal to the sum of the cubes of the digits");
+					//document.getElementsByName('output')[0].value="";
+				}
+				
+            }
+			//length of umbra has to be further away than the distance of the moon in order to get an eclipse
+			function distanceOfUmbra(in1, in2, in3, in4, in5)
+			{
+			
+				var rs = in1/2;
+				var rp = in2/2;
+				var rm = in3/2;
+				var theta = Math.asin((rs-rm)/(in4-in5));
+				var umbra = rm/Math.sin(theta)
+				var formula = 2 * (umbra - in5)/Math.tan(theta);
+				
+				return formula;
+			 
+			}
+        	 //-->
+     </script>
+</head>
+<body>
+<p></p>
+<form action="/action_page.php">
+Diameter of Star in Km: <input type="text" name="input1"><br>
+Diameter of Planet in Km: <input type="text" name="input2"><br>
+Diameter of Moon in Km: <input type="text" name="input3"><br>
+Distance from star to planet in Km: <input type="text" name="input4"><br>
+Distance from moon to planet in Km: <input type="text" name="input5"><br>
+</form>
+
+
+<button onclick="outPut()" type="button">Calculate</button>
+<input></input><span style="margin-left:10px;" name="output">Km</span>
+</body>
+</html>
+

@@ -1,0 +1,68 @@
+<html>
+<!-- Template for biographical page -->
+<body onload="onInit()">
+<h1>Pet</h1>
+<title>Pet</title>
+	<script type="text/javascript">
+		<!--
+		var counter = 1;
+		function onInit()
+		{
+			//deselectEverything();
+			//document.getElementById("n"+currentPosition).innerText = "X";
+			//alert(document.getElementById("n0").value);
+			document.getElementById("2").style.display = 'none';
+			document.getElementById("3").style.display = 'none';
+			document.getElementById("4").style.display = 'none';
+			document.getElementById("5").style.display = 'none';
+		}
+        function outPut() 
+		{
+			
+			
+			if(counter == 1)
+			{
+				document.getElementById("1").style.display = 'none';
+				counter++;
+				document.getElementById("2").style.display = 'block';	
+			}
+			else if(counter == 2)
+			{
+				document.getElementById("2").style.display = 'none';
+				counter++;
+				document.getElementById("3").style.display = 'block';	
+			}
+			else if(counter == 3)
+			{
+				document.getElementById("3").style.display = 'none';
+				counter++;
+				document.getElementById("4").style.display = 'block';	
+			}
+			else if(counter == 4)
+			{
+				document.getElementById("4").style.display = 'none';
+				counter++;
+				document.getElementById("5").style.display = 'block';	
+			}
+			else if(counter == 5)
+			{
+				document.getElementById("5").style.display = 'none';
+				counter = 1;
+				document.getElementById("1").style.display = 'block';
+			}
+			//alert(counter);
+			
+        }
+        	 //-->
+      </script>
+	  
+<img src="https://iheartdogs.com/wp-content/uploads/2015/09/5-14553098786_c2e69e6914_z.jpg" alt="relaxed" height="100" width="100" id="1">
+<img src="http://www.petmd.com/sites/default/files/help-hungry-dog-main.jpg" alt="hungry" height="100" width="100" id="2" style="display:none;">
+<img src="https://i.pinimg.com/736x/44/81/ce/4481ce3ee188ff36412f9325e587e4dc--nature-photos-dog-heaven.jpg" alt="happy" height="100" width="100" id="3" style="display:none;"> 
+<img src="https://media.istockphoto.com/photos/aggressive-angry-dog-picture-id542218056?k=6&m=542218056&s=612x612&w=0&h=jSawPE-i2QHM-6i1YVCiDfuu4nFSTcAlvuIepnIUFk0=" alt="angry" height="100" width="100" id="4" style="display:none;"> 
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV3hgeKlnPzUB3t6Q5_nbTCOxuqm9GeteeIfnXhWGoJKMcL97f" alt="sleepy" height="100" width="100" id="5" style="display:none;">		
+<p></p>
+<button onclick="outPut()" type="button">Switch</button>
+</body>
+</html>
+

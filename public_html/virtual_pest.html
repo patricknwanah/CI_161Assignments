@@ -1,0 +1,351 @@
+<html>
+<!-- Template for biographical page -->
+<body onload="onInit()">
+<h1>Pet</h1>
+<title>Pet</title>
+	<script type="text/javascript">
+		<!--
+		var relaxed = 1;
+		var happy = 2;
+		var angry = 3;
+		var hungry = 4;
+		var sleepy = 5;
+		var currentState = 0;
+		var textbox = document.getElementsByName('state')[0]
+		function onInit()
+		{
+			//deselectEverything();
+			//document.getElementById("n"+currentPosition).innerText = "X";
+			//alert(document.getElementById("n0").value);
+			currentState = 1;
+			document.getElementsByName('state')[0].value='Relaxing';
+			document.getElementById("2").style.display = 'none';
+			document.getElementById("3").style.display = 'none';
+			document.getElementById("4").style.display = 'none';
+			document.getElementById("5").style.display = 'none';
+			
+			myInterval();
+		}
+		
+		function myInterval()//every 20seconds 
+		{
+			setInterval(function(){ timeoutFunction(); }, 20000);
+		}
+		function timeoutFunction()
+		{
+			if(currentState == 1)//if pet is resting, it gets hungry
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 2;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Hungry';
+			}
+			else if(currentState == 2)//if pet is hungry,it gets happy
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 3;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Happy';
+			}
+			else if(currentState == 3)//if pet is happy, it gets angry
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 4;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Angry';
+			}
+			else if(currentState == 4)//if pet is angry, it gets sleepy
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 5;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Sleeping';
+			}
+			else//if pet is sleepy, it gets relaxed
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 1;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Relaxing';
+			}
+		}
+        function pet() 
+		{
+			if(currentState == 1)//if pet is resting and you pet it, it gets happy
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 3;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Happy';
+			}
+			else if(currentState == 2)//if pet is hungry and you pet it, it relaxes
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 1;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Relaxing';
+			}
+			else if(currentState == 3)//if pet is happy and you pet it, it remains happy
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 3;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Remaining Happy';
+			}
+			else if(currentState == 4)//if pet is angry and you pet it, it gets relaxed
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 1;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Relaxing';
+			}
+			else//if pet is sleepy and you pet it, it remains sleepy
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 5;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Remaining Sleepy';
+			}
+        }
+		function walk() 
+		{
+			if(currentState == 1)//if pet is resting and you walk it, it gets sleepy
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 5;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Sleepy';
+			}
+			else if(currentState == 2)//if pet is hungry and you walk it, it remains hungry
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 2;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Remaining Hungry';
+			}
+			else if(currentState == 3)//if pet is happy and you walk it, it gets sleepy
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 5;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Sleepy';
+			}
+			else if(currentState == 4)//if pet is angry and you walk it, it gets hungry
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 2;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Hungry';
+			}
+			else//if pet is sleepy and you walk it, it gets angry
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 4;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Angry';
+			}
+        }
+		function feed() 
+		{
+			if(currentState == 1)//if pet is resting and you feed it, it gets happy
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 3;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Happy';
+			}
+			else if(currentState == 2)//if pet is hungry and you feed it, it gets happy
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 3;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Happy';
+			}
+			else if(currentState == 3)//if pet is happy and you feed it, it gets sleepy
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 5;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Sleepy';
+			}
+			else if(currentState == 4)//if pet is angry and you feed it, it gets relaxed
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 1;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Relaxing';
+			}
+			else//if pet is sleepy and you feed it, it remains sleepy
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 5;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Remaining Sleepy';
+			}
+        }
+		
+		function play() 
+		{
+			if(currentState == 1)//if pet is resting and you play with it, it gets sleepy
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 5;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Sleepy';
+			}
+			else if(currentState == 2)//if pet is hungry and you play with it, it remains hungry
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 2;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Hungry';
+			}
+			else if(currentState == 3)//if pet is happy and you play with it, it gets relaxed
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 1;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Relaxing';
+			}
+			else if(currentState == 4)//if pet is angry and you play with it, it gets hungry
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 2;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Hungry';
+			}
+			else//if pet is sleepy and you play with it, it remains sleepy
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 5;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Remaining Sleepy';
+			}
+        }
+		
+		function smack() 
+		{
+			if(currentState == 1)//if pet is resting and you smack it, it gets angry
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 4;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Angry';
+			}
+			else if(currentState == 2)//if pet is hungry and you smack it, it remains angry
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 4;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Angry';
+			}
+			else if(currentState == 3)//if pet is happy and you smack it, it gets relaxed
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 1;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Relaxing';
+			}
+			else if(currentState == 4)//if pet is angry and you smack it, it remains angry
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 4;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Remaining Angry';
+			}
+			else//if pet is sleepy and you smack it, it gets angry
+			{
+				document.getElementById(currentState).style.display = 'none';
+				currentState = 4;
+				document.getElementById(currentState).style.display = 'block';
+				document.getElementsByName('state')[0].value='Angry';
+			}
+        }
+        	 //-->
+      </script>
+
+	  
+<img src="https://iheartdogs.com/wp-content/uploads/2015/09/5-14553098786_c2e69e6914_z.jpg" alt="relaxed" height="100" width="100" id="1">
+<img src="http://www.petmd.com/sites/default/files/help-hungry-dog-main.jpg" alt="hungry" height="100" width="100" id="2" style="display:none;">
+<img src="https://i.pinimg.com/736x/44/81/ce/4481ce3ee188ff36412f9325e587e4dc--nature-photos-dog-heaven.jpg" alt="happy" height="100" width="100" id="3" style="display:none;"> 
+<img src="https://media.istockphoto.com/photos/aggressive-angry-dog-picture-id542218056?k=6&m=542218056&s=612x612&w=0&h=jSawPE-i2QHM-6i1YVCiDfuu4nFSTcAlvuIepnIUFk0=" alt="angry" height="100" width="100" id="4" style="display:none;"> 
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV3hgeKlnPzUB3t6Q5_nbTCOxuqm9GeteeIfnXhWGoJKMcL97f" alt="sleepy" height="100" width="100" id="5" style="display:none;">		
+<form action="/action_page.php">
+	<input type="text" name="state" disabled><br>
+</form>
+
+
+<p>Events</p>
+<table
+  <tr>
+    <th><button onclick="pet()" type="button">Pet</button></th>
+    <th><button onclick="walk()" type="button">Walk</button></th> 
+    <th><button onclick="feed()" type="button">Feed</button></th>
+	<th><button onclick="play()" type="button">Play</button></th>
+	<th><button onclick="smack()" type="button">Smack</button></th>
+  </tr>
+</table>
+<h3>State Machine</h3>
+<table
+	<tr>
+		<th></th>
+		<th>Relaxing</th>
+		<th>Hungry</th>
+		<th>Happy</th> 
+		<th>Angry</th>
+		<th>Sleepy</th>
+	</tr>
+	<tr>
+		<th>Pet</th>
+		<th><p>happy=3</p></th>
+		<th><p>relax=1</p></th>
+		<th><p>happy=3</p></th>
+		<th><p>relax=1</p></th>
+		<th><p>sleepy=5</p></th>
+	</tr>
+	<tr>
+		<th>Walk</th>
+		<th><p>sleepy=5</p></th>
+		<th><p>hungry=2</p></th>
+		<th><p>sleepy=5</p></th>
+		<th><p>hungry=2</p></th>
+		<th><p>angry=4</p></th>
+	</tr>
+	<tr>
+		<th>Feed</th>
+		<th><p>happy=3</p></th>
+		<th><p>happy=3</p></th>
+		<th><p>sleepy=5</p></th>
+		<th><p>relaxed=1</p></th>
+		<th><p>sleepy=5</p></th>
+	</tr>
+	<tr>
+		<th>Play</th>
+		<th><p>sleepy=5</p></th>
+		<th><p>hungry=2</p></th>
+		<th><p>relaxed=1</p></th>
+		<th><p>hungry=2</p></th>
+		<th><p>sleepy=5</p></th>
+	</tr>
+	<tr>
+		<th>Smack</th>
+		<th><p>angry=4</p></th>
+		<th><p>angry=4</p></th>
+		<th><p>relaxed=1</p></th>
+		<th><p>angry=4</p></th>
+		<th><p>angry=4</p></th>
+	</tr>
+	<tr>
+		<th>Timeout(20s)</th>
+		<th><p>hungry=2</p></th>
+		<th><p>happy=3</p></th>
+		<th><p>angry=4</p></th>
+		<th><p>sleepy=5</p></th>
+		<th><p>relaxed=1</p></th>
+	</tr>
+</table>
+<h4>Documentation</h4>
+<p>I do not have a pet and would basically just made up a pet for myself. I don't really know much about pets so I asked some friends about what their pets would do in certain situations and guessed for the rest. The idea for my state transition was just to make it as easy as possible to understand and implement effectively. If statements are always really easy to understand.Every 20secs the pet spontanously changes state in a cycle. My code is heavly commented to help programmers add upon my work. I assign a value to each of my states and use an integer "currentState" to keep track of what state I am in. 1 = relaxing, 2 = hungry, 3 = happy, 4 = angry, 5 = sleepy</p>
+</body>
+</html>
+

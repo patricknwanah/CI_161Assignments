@@ -1,0 +1,228 @@
+<html>
+<!-- Template for biographical page -->
+<body onload="onInit()">
+<script type="text/javascript">
+	var inputs = 9;
+	var currentPosition = 5;
+	function onInit()
+	{
+		deselectEverything();
+		document.getElementById("n"+currentPosition).innerText = "X";
+		//alert(document.getElementById("n0").value);
+	}
+	function isInfirstRow(number)
+	{
+		if(number == 1 || number == 2 || number == 3){
+			return true;
+		}
+		else
+			return false;
+	}
+	function isInSecondRow(number)
+	{
+		if(number == 4 || number == 5 || number == 6){
+			return true;
+		}
+		else
+			return false;
+	}
+	function isInThirdRow(number)
+	{
+		if(number == 7 || number == 8 || number == 9){
+			return true;
+		}
+		else
+			return false;
+	}
+	function deselectEverything()
+	{
+		document.getElementById("off1").checked = true;
+		document.getElementById("off2").checked = true;
+		document.getElementById("up").style.display = 'none';
+		document.getElementById("down").style.display = 'none';
+		document.getElementById("left").style.display = 'none';
+		document.getElementById("right").style.display = 'none';
+	}
+	function onButtonClick(btnValue)
+	{
+		//alert(typeof(currentPosition));
+		
+		document.getElementById("n" + currentPosition).innerText = "";
+		document.getElementById("n" + btnValue).innerText = "X";
+		if(currentPosition == btnValue){
+			deselectEverything();
+		}
+		else if((isInfirstRow(currentPosition) && !isInfirstRow(btnValue)) &&  (btnValue != currentPosition+3 && btnValue != currentPosition+6) && (btnValue > currentPosition+3 || btnValue > currentPosition+6) && (currentPosition != 3 && currentPosition != 6 && currentPosition != 9 )){ //down right
+			deselectEverything();
+			document.getElementById("on1").checked = true;
+			document.getElementById("on2").checked = true;
+			document.getElementById("right").style.display = 'block';
+			document.getElementById("down").style.display = 'block';
+			//alert(currentPosition + "wowo:" + btnValue);
+		}
+		else if((isInSecondRow(currentPosition) && isInThirdRow(btnValue) ) && (btnValue != currentPosition+3 && btnValue != currentPosition+6) && (btnValue > currentPosition+3 || btnValue > currentPosition+6) && (currentPosition != 3 && currentPosition != 6 && currentPosition != 9 )){ //down right
+			deselectEverything();
+			document.getElementById("on1").checked = true;
+			document.getElementById("on2").checked = true;
+			document.getElementById("right").style.display = 'block';
+			document.getElementById("down").style.display = 'block';
+			
+		}
+		else if((isInfirstRow(currentPosition) && !isInfirstRow(btnValue) ) && (btnValue != currentPosition+3 && btnValue != currentPosition+6) && (btnValue < currentPosition+3 || btnValue < currentPosition+6) && (currentPosition != 1 && currentPosition != 4 && currentPosition != 7 )){ //down left
+			deselectEverything();
+			document.getElementById("on1").checked = true;
+			document.getElementById("on2").checked = true;
+			document.getElementById("left").style.display = 'block';
+			document.getElementById("down").style.display = 'block';
+		}
+		else if((isInSecondRow(currentPosition) && isInThirdRow(btnValue) ) && (btnValue != currentPosition+3 && btnValue != currentPosition+6) && (btnValue < currentPosition+3 || btnValue < currentPosition+6) && (currentPosition != 1 && currentPosition != 4 && currentPosition != 7 )){ //down left
+			deselectEverything();
+			document.getElementById("on1").checked = true;
+			document.getElementById("on2").checked = true;
+			document.getElementById("left").style.display = 'block';
+			document.getElementById("down").style.display = 'block';
+		}
+		else if((isInThirdRow(currentPosition) && !isInThirdRow(btnValue)) &&  (btnValue != currentPosition-3 && btnValue != currentPosition-6) && (btnValue > currentPosition-3 || btnValue > currentPosition-6) && (currentPosition != 3 && currentPosition != 6 && currentPosition != 9 )){ //up right
+			deselectEverything();
+			document.getElementById("on1").checked = true;
+			document.getElementById("on2").checked = true;
+			document.getElementById("right").style.display = 'block';
+			document.getElementById("up").style.display = 'block';
+			//alert(currentPosition + "wowo:" + btnValue);
+		}
+		else if((isInSecondRow(currentPosition) && isInfirstRow(btnValue)) &&  (btnValue != currentPosition-3 && btnValue != currentPosition-6) && (btnValue > currentPosition-3) && (currentPosition != 3 && currentPosition != 6 && currentPosition != 9 )){ //up right
+			deselectEverything();
+			document.getElementById("on1").checked = true;
+			document.getElementById("on2").checked = true;
+			document.getElementById("right").style.display = 'block';
+			document.getElementById("up").style.display = 'block';
+			//alert(currentPosition + "wowo:" + btnValue);
+			
+		}
+		else if((isInThirdRow(currentPosition) && !isInThirdRow(btnValue)) &&  (btnValue != currentPosition-3 && btnValue != currentPosition-6) && (btnValue < currentPosition-3 || btnValue < currentPosition-6) && (currentPosition != 1 && currentPosition != 4 && currentPosition != 7 )){ //up left
+			deselectEverything();
+			document.getElementById("on1").checked = true;
+			document.getElementById("on2").checked = true;
+			document.getElementById("left").style.display = 'block';
+			document.getElementById("up").style.display = 'block';
+			//alert(currentPosition + "wowo:" + btnValue);
+		}
+		else if((isInSecondRow(currentPosition) && isInfirstRow(btnValue)) &&  (btnValue != currentPosition-3 && btnValue != currentPosition-6) && (btnValue < currentPosition-3 || btnValue < currentPosition-6) && (currentPosition != 1 && currentPosition != 4 && currentPosition != 7 )){ //up left
+			deselectEverything();
+			document.getElementById("on1").checked = true;
+			document.getElementById("on2").checked = true;
+			document.getElementById("left").style.display = 'block';
+			document.getElementById("up").style.display = 'block';
+			//alert(currentPosition + "wowo:" + btnValue);
+		}
+		
+		else if(((currentPosition == 1 || currentPosition == 2) && (btnValue == 2 || btnValue == 3))){//right
+			deselectEverything();
+			document.getElementById("on2").checked = true;
+			document.getElementById("right").style.display = 'block';
+		}
+		else if(((currentPosition == 4 || currentPosition == 5) && (btnValue == 5 || btnValue == 6))){//right
+			deselectEverything();
+			document.getElementById("on2").checked = true;
+			document.getElementById("right").style.display = 'block';
+		}
+		else if(((currentPosition == 7 || currentPosition == 8) && (btnValue == 8 || btnValue == 9))){//right
+			deselectEverything();
+			document.getElementById("on2").checked = true;
+			document.getElementById("right").style.display = 'block';
+		}
+		else if(((currentPosition == 3 || currentPosition == 2)&& (btnValue == 2 || btnValue == 1))){//left
+			deselectEverything();
+			document.getElementById("on2").checked = true;
+			document.getElementById("left").style.display = 'block';
+		}
+		else if(((currentPosition == 6 || currentPosition == 5) && (btnValue == 5 || btnValue == 4))){//left
+			deselectEverything();
+			document.getElementById("on2").checked = true;
+			document.getElementById("left").style.display = 'block';
+		}
+		else if(((currentPosition == 9 || currentPosition == 8)&& (btnValue == 8 || btnValue == 7))){//left
+			deselectEverything();
+			document.getElementById("on2").checked = true;
+			document.getElementById("left").style.display = 'block';
+		}
+		else if(((currentPosition == 1 || currentPosition == 4) && (btnValue == 4 || btnValue == 7))){//down
+			deselectEverything();
+			document.getElementById("on1").checked = true;
+			document.getElementById("down").style.display = 'block';
+		}
+		else if(((currentPosition == 2 || currentPosition == 5) && (btnValue == 5 || btnValue == 8))){//down
+			deselectEverything();
+			document.getElementById("on1").checked = true;
+			document.getElementById("down").style.display = 'block';
+		}
+		else if(((currentPosition == 3 || currentPosition == 6) && (btnValue == 6 || btnValue == 9))){//down
+			deselectEverything();
+			document.getElementById("on1").checked = true;
+			document.getElementById("down").style.display = 'block';
+		}
+		else if(((currentPosition == 7 || currentPosition == 4) && (btnValue == 4 || btnValue == 1))){//up
+			deselectEverything();
+			document.getElementById("on1").checked = true;
+			document.getElementById("up").style.display = 'block';
+		}
+		else if(((currentPosition == 8 || currentPosition == 5) && (btnValue == 5 || btnValue == 2))){//up
+			deselectEverything();
+			document.getElementById("on1").checked = true;
+			document.getElementById("up").style.display = 'block';
+		}
+		else if(((currentPosition == 9 || currentPosition == 6) && (btnValue == 6 || btnValue == 3))){//up
+			deselectEverything();
+			document.getElementById("on1").checked = true;
+			document.getElementById("up").style.display = 'block';
+		}
+		
+		
+		currentPosition = btnValue;
+		
+	}
+</script>
+<p>You give the guider inputs by clicking on one of the buttons. The starting position is the center of the grid.</p>
+<table style="width:150px; height:150px">
+<tr>
+    <th><button type="button" id="n1" onClick="onButtonClick(1)"></button></th>
+    <th><button type="button" id="n2" onClick="onButtonClick(2)"></button></th>
+    <th><button type="button" id="n3" onClick="onButtonClick(3)"></button></th>
+  </tr>                           
+<tr>                              
+    <th><button type="button" id="n4" onClick="onButtonClick(4)"></button></th>
+    <th><button type="button" id="n5" onClick="onButtonClick(5)"></button></th>
+    <th><button type="button" id="n6" onClick="onButtonClick(6)"></button></th>
+  </tr>                           
+<tr>                              
+    <th><button type="button" id="n7" onClick="onButtonClick(7)"></button></th>
+    <th><button type="button" id="n8" onClick="onButtonClick(8)"></button></th>
+    <th><button type="button" id="n9" onClick="onButtonClick(9)"></button></th>
+  </tr>
+</table>
+
+	<table style="width:150px; height:150px">
+	<tr>
+		<th>
+		<form action="">
+		<h4>Altitude Motor</h4>
+		<input type="radio" name="r1" value="on" id="on1"> On<br>
+		<input type="radio" name="r1" value="off" id="off1"> Off<br>
+		<span id="up">&#8593;</span>
+		<span id="down">&#8595;</span>
+		</form>
+		</th>
+		<th>
+		<form action="">
+		<h4>Azimuth Motor</h4>
+		<input type="radio" name="r2" value="on" id="on2"> On<br>
+		<input type="radio" name="r2" value="off" id="off2"> Off<br>
+		<span id="left">&#8592;</span>
+		<span id="right">&#8594;</span>
+		</form>
+		</th>
+	</tr>
+	</table>
+</body>
+</html>
+
